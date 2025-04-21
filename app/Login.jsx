@@ -21,7 +21,7 @@ const CustomizationScreen = ({navigation}) => {
           keyboardType="email-address"
         />
       </View>
-      <TouchableOpacity style={styles.continueButton}  onPress={()=>navigation.replace('Password')}>
+      <TouchableOpacity style={styles.continueButton}  onPress={()=>navigation.replace('PhoneAuth')}>
         <Text style={styles.continueText}>Continue</Text>
       </TouchableOpacity>
       <Text style={styles.orText}>Or continue with</Text>
