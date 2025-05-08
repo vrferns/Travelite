@@ -21,10 +21,11 @@ const CustomizationScreen = ({navigation}) => {
           keyboardType="email-address"
         />
       </View>
-      <TouchableOpacity style={styles.continueButton}  onPress={()=>navigation.replace('PhoneAuth')}>
+      <TouchableOpacity style={styles.continueButton}  onPress={()=>navigation.replace('Password')}>
         <Text style={styles.continueText}>Continue</Text>
       </TouchableOpacity>
       <Text style={styles.orText}>Or continue with</Text>
+      
       <View style={styles.socialContainer}>
         <TouchableOpacity style={styles.socialoption}>
           <Image source={require("../assets/images/google.png")} style={styles.icon} />
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   inputContainer: {
-    backgroundColor: "#1c1c1c",
+    backgroundColor: "#3e4246",
     borderRadius: 10,
     width: "100%",
     padding: 15,
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
   },
   socialoption: {
     marginTop:10,
-    backgroundColor: "#1c1c1c",
+    backgroundColor: "#3e4246",
     paddingVertical: 15,
     paddingHorizontal: 30,
     borderRadius: 15,

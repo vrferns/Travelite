@@ -1,51 +1,65 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image , StatusBar } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image,StatusBar } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
 const COLORS = {primary: '#282D31', white: '#fff'};
 
-export default function LoginScreen({navigation}) {
+export default function ResetPasswordScreen({navigation}) {
   const [password, setPassword] = useState('');
-  const [secureText, setSecureText] = useState(true);
+  const [secure, setSecure] = useState(true);
+
+  const isValid = password.length >= 6; // Example validation
 
   return (
     <View style={styles.container}>
-      <StatusBar backgroundColor={COLORS.primary}/>
-      <TouchableOpacity style={styles.avatarContainer}>
+    <StatusBar backgroundColor={COLORS.primary}/>
+      
+      <TouchableOpacity style={styles.backButton}>
+        <MaterialIcons name="arrow-back-ios" size={20} color="#fff" />
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.closeButton}>
+        <MaterialIcons name="close" size={22} color="#fff" />
+      </TouchableOpacity>
+
+    
+      <View style={styles.avatarContainer}>
         <Image
-          source={require('C:/Users/__Tina__/Desktop/PROJECT/Travelite/assets/images/profile.png')}  
+          source={require('C:/Users/__Tina__/Desktop/PROJECT/Travelite/assets/images/profile.png')}  // Replace with actual image if available
           style={styles.avatar}
         />
         <Text style={styles.username}>Jordan</Text>
-      </TouchableOpacity>
+      </View>
 
-      <Text style={styles.welcomeText}>Welcome back!</Text>
+      
+      <Text style={styles.title}>Reset password</Text>
 
+      
       <View style={styles.inputContainer}>
         <MaterialIcons name="lock-outline" size={20} color="#aaa" />
         <TextInput
           style={styles.input}
           placeholder="Password"
           placeholderTextColor="#aaa"
-          secureTextEntry={secureText}
+          secureTextEntry={secure}
           value={password}
           onChangeText={setPassword}
         />
-        <TouchableOpacity onPress={() => setSecureText(!secureText)}>
+        <TouchableOpacity onPress={() => setSecure(!secure)}>
           <MaterialIcons
-            name={secureText ? 'visibility-off' : 'visibility'}
+            name={secure ? 'visibility-off' : 'visibility'}
             size={20}
             color="#aaa"
           />
         </TouchableOpacity>
+        {isValid && (
+          <MaterialIcons name="check-circle" size={20} color="#00d26a" style={styles.checkIcon} />
+        )}
       </View>
 
-      <TouchableOpacity style={styles.button} onPress={()=>navigation.replace('EmailAuth')}>
+    
+      <TouchableOpacity style={styles.button} onPress={()=>navigation.replace('Signup')}>
         <Text style={styles.buttonText}>Continue</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity>
-        <Text style={styles.forgotText}>Forgot your password? <Text style={styles.resetText}>Reset it</Text></Text>
       </TouchableOpacity>
     </View>
   );
@@ -55,46 +69,60 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: COLORS.primary,
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     paddingHorizontal: 20,
+    justifyContent: 'center',
+  },
+  backButton: {
+    position: 'absolute',
+    top: 50,
+    left: 20,
+  },
+  closeButton: {
+    position: 'absolute',
+    top: 50,
+    right: 20,
   },
   avatarContainer: {
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 10,
   },
   avatar: {
     width: 70,
     height: 70,
     borderRadius: 35,
+    backgroundColor: '#333',
     marginBottom: 5,
-    backgroundColor: '#333', // Placeholder background
   },
   username: {
     color: '#fff',
-    fontSize: 16,
     fontWeight: '600',
+    fontSize: 16,
   },
-  welcomeText: {
+  title: {
     color: '#fff',
-    fontSize: 30,
+    fontSize: 24,
     fontWeight: '700',
     marginBottom: 30,
+    textAlign: 'center',
   },
   inputContainer: {
     backgroundColor: '#3e4246',
     flexDirection: 'row',
     alignItems: 'center',
-    borderRadius: 15,
+    borderRadius: 12,
     paddingHorizontal: 15,
     width: '100%',
-    marginBottom: 40,
+    marginBottom: 30,
     height: 60,
+    position: 'relative',
   },
   input: {
     flex: 1,
     marginLeft: 10,
     color: '#fff',
+  },
+  checkIcon: {
+    marginLeft: 10,
   },
   button: {
     backgroundColor: '#ff7a00',
@@ -108,13 +136,5 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 16,
     fontWeight: '600',
-  },
-  forgotText: {
-    color: '#aaa',
-    fontSize: 14,
-  },
-  resetText: {
-    color: '#fff',
-    fontWeight: '500',
   },
 });

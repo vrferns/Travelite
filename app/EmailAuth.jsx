@@ -1,25 +1,16 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet,StatusBar } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
 const COLORS = {primary: '#282D31', white: '#fff'};
 
-export default function ConfirmNumberScreen({navigation}) {
-  const [code, setCode] = useState(['', '', '', '']);
-  const inputs = useRef([]);
-
-  const handleChange = (text, index) => {
-    const newCode = [...code];
-    newCode[index] = text;
-    setCode(newCode);
-    if (text && index < 3) {
-      inputs.current[index + 1].focus();
-    }
-  };
+export default function VerificationScreen({navigation}) {
+  const [pin, setPin] = useState('');
+  const [secure, setSecure] = useState(false);
 
   return (
     <View style={styles.container}>
-      <StatusBar backgroundColor={COLORS.primary} />
+      <StatusBar backgroundColor={COLORS.primary}/>
       <TouchableOpacity style={styles.backButton}>
         <MaterialIcons name="arrow-back-ios" size={20} color="#fff" />
       </TouchableOpacity>
@@ -28,24 +19,33 @@ export default function ConfirmNumberScreen({navigation}) {
         <MaterialIcons name="close" size={22} color="#fff" />
       </TouchableOpacity>
 
-      <Text style={styles.title}>Confirm your number</Text>
-      <Text style={styles.subtitle}>Enter the code we sent over to 09196252422.</Text>
+      <Text style={styles.header}>Enter the 6 digit code</Text>
+      <Text style={styles.subText}>
+        Enter the code we sent over to <Text style={{ fontWeight: '600' }}>21co03@aitdxgoa.edu.in</Text>
+      </Text>
 
-      <View style={styles.codeContainer}>
-        {code.map((digit, index) => (
-          <TextInput
-            key={index}
-            ref={el => (inputs.current[index] = el)}
-            style={styles.codeInput}
-            keyboardType="numeric"
-            maxLength={1}
-            onChangeText={text => handleChange(text, index)}
-            value={digit}
+      <View style={styles.inputContainer}>
+        <MaterialIcons name="email" size={20} color="#aaa" />
+        <TextInput
+          style={styles.input}
+          placeholder="PIN"
+          placeholderTextColor="#aaa"
+          keyboardType="numeric"
+          secureTextEntry={secure}
+          maxLength={6}
+          value={pin}
+          onChangeText={setPin}
+        />
+        <TouchableOpacity onPress={() => setSecure(!secure)}>
+          <MaterialIcons
+            name={secure ? 'visibility-off' : 'visibility'}
+            size={20}
+            color="#aaa"
           />
-        ))}
+        </TouchableOpacity>
       </View>
 
-      <TouchableOpacity style={styles.button} onPress={()=>navigation.replace('RestPass')}>
+      <TouchableOpacity style={styles.button} onPress={()=>navigation.replace('PhoneAuth')}>
         <Text style={styles.buttonText}>Continue</Text>
       </TouchableOpacity>
 
@@ -75,30 +75,33 @@ const styles = StyleSheet.create({
     top: 50,
     right: 20,
   },
-  title: {
+  header: {
     color: '#fff',
-    fontSize: 24,
+    fontSize: 50,
     fontWeight: '700',
     marginBottom: 10,
+    textAlign: 'left',
   },
-  subtitle: {
+  subText: {
     color: '#aaa',
-    fontSize: 14,
+    fontSize: 12,
     marginBottom: 30,
   },
-  codeContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 30,
-  },
-  codeInput: {
+  inputContainer: {
     backgroundColor: '#3e4246',
-    color: '#fff',
-    fontSize: 20,
-    borderRadius: 10,
-    textAlign: 'center',
-    width: 60,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: 12,
+    paddingHorizontal: 15,
+    width: '100%',
+    marginBottom: 30,
     height: 60,
+  },
+  input: {
+    flex: 1,
+    marginLeft: 10,
+    color: '#fff',
+    fontSize: 16,
   },
   button: {
     backgroundColor: '#ff7a00',
