@@ -7,25 +7,20 @@ const COLORS = {primary: '#282D31', white: '#fff'};
 export default function NotificationPromptScreen({ navigation }) {
   return (
     <View style={styles.container}>
-    <StatusBar backgroundColor={COLORS.primary} />
-      
+      <StatusBar backgroundColor={COLORS.primary} />
       <View style={styles.iconContainer}>
         <Ionicons name="notifications-outline" size={24} color="#fff" />
       </View>
 
-      
       <Text style={styles.title}>Turn on notifications?</Text>
 
-     
       <Text style={styles.subtitle}>
         Don’t miss important alerts like check-in activity & events.
       </Text>
 
-     
       <TouchableOpacity style={styles.primaryButton}>
         <Text style={styles.primaryButtonText}>Yes, notify me</Text>
       </TouchableOpacity>
-
       <TouchableOpacity style={styles.secondaryButton} onPress={()=>navigation.replace('home')}>
         <Text style={styles.secondaryButtonText}>Skip</Text>
       </TouchableOpacity>

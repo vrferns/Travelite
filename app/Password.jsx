@@ -12,8 +12,8 @@ export default function LoginScreen({navigation}) {
     <View style={styles.container}>
       <StatusBar backgroundColor={COLORS.primary}/>
       <TouchableOpacity style={styles.closeButton}>
-              <MaterialIcons name="close" size={22} color="#fff" />
-            </TouchableOpacity>
+        <MaterialIcons name="close" size={22} color="#fff" />
+      </TouchableOpacity>
       <TouchableOpacity style={styles.avatarContainer}>
         <Image
           source={require('C:/Users/__Tina__/Desktop/PROJECT/Travelite/assets/images/profile.png')}  

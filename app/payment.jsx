@@ -10,8 +10,7 @@ export default function AddCardScreen({navigation}) {
 
   return (
     <View style={styles.container}>
-        <StatusBar backgroundColor={COLORS.primary}/>
-      {/* Header */}
+      <StatusBar backgroundColor={COLORS.primary}/>
       <View style={styles.header}>
         <Text style={styles.paymentLabel}>PAYMENT</Text>
         <TouchableOpacity onPress={()=>navigation.replace('home')}>
@@ -21,7 +20,7 @@ export default function AddCardScreen({navigation}) {
 
       <Text style={styles.title}>Add a card</Text>
 
-      {/* Card Number */}
+      
       <View style={styles.cardInput}>
         <MaterialCommunityIcons name="credit-card" size={24} color="#FF5A5F" />
          <TextInput
@@ -34,7 +33,7 @@ export default function AddCardScreen({navigation}) {
         <Feather name="check-circle" size={20} color="#4CAF50" />
       </View>
 
-      {/* CVV and Expiry */}
+      
       <View style={styles.row}>
         <TextInput
           style={[styles.input, { flex: 1, marginRight: 10 }]}
@@ -51,7 +50,7 @@ export default function AddCardScreen({navigation}) {
         />
       </View>
 
-      {/* Password */}
+      
       <View style={styles.passwordContainer}>
         <MaterialIcons name="lock-outline" size={20} color="#aaa" />
         <TextInput
@@ -71,7 +70,7 @@ export default function AddCardScreen({navigation}) {
         </TouchableOpacity>
       </View>
 
-      {/* Button */}
+      
       <TouchableOpacity style={styles.button} onPress={()=>navigation.replace('ConfirmPay')}>
         <Text style={styles.buttonText}>Add this Card</Text>
       </TouchableOpacity>

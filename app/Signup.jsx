@@ -19,7 +19,7 @@ export default function SignupScreen({navigation}) {
 
   return (
     <View style={styles.container}>
-     <StatusBar backgroundColor={COLORS.primary}/>
+      <StatusBar backgroundColor={COLORS.primary}/>
       
       <TouchableOpacity style={styles.backButton}>
         <MaterialIcons name="arrow-back" size={20} color="#fff" />

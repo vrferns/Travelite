@@ -8,7 +8,7 @@ export default function NotificationsScreen({navigation}) {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={COLORS.primary}/>
-      {/* Header */}
+      
       <View style={styles.header}>
         <TouchableOpacity onPress={()=>navigation.replace('home')}>
           <Ionicons name="arrow-back" size={24} color="#fff" />
@@ -18,11 +18,11 @@ export default function NotificationsScreen({navigation}) {
         </View>
       </View>
 
-      {/* Title */}
+     
       <Text style={styles.subtitle}>WHAT YOU'VE MISSED</Text>
       <Text style={styles.title}>Notifications</Text>
 
-      {/* Notifications */}
+     
       <ScrollView style={styles.notificationsContainer}>
         <NotificationItem
           image={require('C:/Users/__Tina__/Desktop/PROJECT/Travelite/assets/images/profile.png')}
@@ -42,20 +42,20 @@ export default function NotificationsScreen({navigation}) {
         />
       </ScrollView>
 
-      {/* Bottom Navigation */}
+      
       <View style={styles.navbar}>
-                <TouchableOpacity onPress={()=>navigation.replace('remindeer')}>
-                  <Ionicons name="compass-outline" size={24} color="#fff" />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=>navigation.replace('CustScreen1')}>
-                  <Ionicons name="calendar-outline" size={24} color="#888" />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=>navigation.replace('plan1')}>
-                  <Ionicons name="person-outline" size={24} color="#888" />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=>navigation.replace('home')}>
-                  <Ionicons name="home" size={24} color="#888" />
-                </TouchableOpacity>
+        <TouchableOpacity onPress={()=>navigation.replace('remindeer')}>
+          <Ionicons name="compass-outline" size={24} color="#fff" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={()=>navigation.replace('CustScreen1')}>
+          <Ionicons name="calendar-outline" size={24} color="#888" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={()=>navigation.replace('plan1')}>
+          <Ionicons name="person-outline" size={24} color="#888" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={()=>navigation.replace('home')}>
+          <Ionicons name="home" size={24} color="#888" />
+         </TouchableOpacity>
         
       </View>
     </View>

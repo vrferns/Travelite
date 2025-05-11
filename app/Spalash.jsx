@@ -23,9 +23,6 @@ const Welcome = () => {
         style={[styles.image, {height,width,resizeMode:'contain'}]}
         
         source={require("C:/Users/__Tina__/Desktop/PROJECT/Travelite/assets/images/splash-icon.png")}/>
-    
-    
-    
       
     </View>
   )

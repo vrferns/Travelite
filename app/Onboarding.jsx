@@ -39,9 +39,7 @@ const slides = [
 ];
  
 const Slide = ({item}) => {
-    //console.log(item.image)
     return (
-        
         <View style={{alignItems: 'flex-start'}}>
             <View  style={{ flex:0.3}}/>
             <Image
@@ -70,7 +68,7 @@ const Onboarding = ({navigation}) => {
                     paddingHorizontal:20,
 
                 }}
-            >
+             >
                 <View
                     style={{
                         flexDirection:'row',

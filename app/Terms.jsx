@@ -7,28 +7,28 @@ const COLORS = {primary: '#282D31', white: '#fff'};
 export default function TermsOfServiceScreen({ navigation }) {
   return (
     <View style={styles.container}>
-    <StatusBar backgroundColor={COLORS.primary}/>
-     <ScrollView>
-      <View style={styles.header}>
-        <Image
-                  source={require('C:/Users/__Tina__/Desktop/PROJECT/Travelite/assets/images/logoTrav.png')}  // Replace with avatar URL
-                  style={styles.avatar}
-                />
-      </View>
+      <StatusBar backgroundColor={COLORS.primary}/>
+      <ScrollView>
+        <View style={styles.header}>
+          <Image
+            source={require('C:/Users/__Tina__/Desktop/PROJECT/Travelite/assets/images/logoTrav.png')}  // Replace with avatar URL
+            style={styles.avatar}
+          />
+        </View>
 
-      
-      <Text style={styles.sectionLabel}>TERMS OF SERVICE</Text>
+        
+        <Text style={styles.sectionLabel}>TERMS OF SERVICE</Text>
 
-      
-      <Text style={styles.heading}>Travelite is a community where anyone can belong</Text>
+        
+        <Text style={styles.heading}>Travelite is a community where anyone can belong</Text>
 
-      
-      <Text style={styles.body}>
-        To ensure this, we are asking you to commit to the following:
-      </Text>
-      <Text style={styles.commitment}>
-        I agree to treat everyone in the Travelite community – regardless of their race, gender, religion, national origin, or ability – with respect & without judgement or bias.
-      </Text>
+        
+        <Text style={styles.body}>
+          To ensure this, we are asking you to commit to the following:
+        </Text>
+        <Text style={styles.commitment}>
+          I agree to treat everyone in the Travelite community – regardless of their race, gender, religion, national origin, or ability – with respect & without judgement or bias.
+        </Text>
       </ScrollView>
 
      

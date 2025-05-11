@@ -16,8 +16,7 @@ const join = ({navigation}) => {
                 source={require("C:/Users/__Tina__/Desktop/PROJECT/Travelite/assets/images/join.png")}/>
             </View>
             <View>
-                <Text style={[styles.title1]}>
-                   Join millions  </Text>
+                <Text style={[styles.title1]}>Join millions  </Text>
                 <Text  style={[styles.title]}> of students </Text>  
                 <Text  style={[styles.title]}> adventuring </Text>   
                
@@ -36,9 +35,6 @@ const join = ({navigation}) => {
                     <Text style={styles.btnText}>{"Continue"}</Text>
                  </TouchableOpacity>
             </View>
-           
-        
-        
           
         </View>
     )

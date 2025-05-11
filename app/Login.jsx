@@ -11,7 +11,7 @@ const CustomizationScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={COLORS.primary}/>
-       <TouchableOpacity style={styles.closeButton}>
+      <TouchableOpacity style={styles.closeButton}>
         <MaterialIcons name="close" size={22} color="#fff" />
       </TouchableOpacity>
       <Text style={styles.title}>Enter your college email</Text>

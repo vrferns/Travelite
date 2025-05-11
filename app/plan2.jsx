@@ -11,39 +11,39 @@ export default function WhereScreen({navigation}) {
     <View style={styles.container}>
       <ScrollView>
         <StatusBar backgroundColor={COLORS.primary} />
-      
-      <View style={styles.tabs}>
-        <View style={[styles.tab, styles.tabActive]}>
-          <Ionicons name="location-outline" size={18} color="#fff" />
+        
+        <View style={styles.tabs}>
+          <View style={[styles.tab, styles.tabActive]}>
+            <Ionicons name="location-outline" size={18} color="#fff" />
+          </View>
+          <View style={styles.tab}>
+            <MaterialIcons name="date-range" size={18} color="#999" />
+          </View>
+          <View style={styles.tab}>
+            <FontAwesome5 name="user-friends" size={16} color="#999" />
+          </View>
         </View>
-        <View style={styles.tab}>
-          <MaterialIcons name="date-range" size={18} color="#999" />
-        </View>
-        <View style={styles.tab}>
-          <FontAwesome5 name="user-friends" size={16} color="#999" />
-        </View>
-      </View>
+
+        
+        <Text style={styles.title}>Where do you{"\n"}want to go?</Text>
 
       
-      <Text style={styles.title}>Where do you{"\n"}want to go?</Text>
+        <View style={styles.searchContainer}>
+          <Ionicons name="search-outline" size={18} color="#ccc" />
+          <TextInput
+            placeholder="Search destination"
+            placeholderTextColor="#aaa"
+            style={styles.searchInput}
+          />
+          <Ionicons name="mic-outline" size={18} color="#aaa" />
+        </View>
 
-    
-      <View style={styles.searchContainer}>
-        <Ionicons name="search-outline" size={18} color="#ccc" />
-        <TextInput
-          placeholder="Search destination"
-          placeholderTextColor="#aaa"
-          style={styles.searchInput}
+        
+        <Image
+          source={require('C:/Users/__Tina__/Desktop/PROJECT/Travelite/assets/images/map.png')} 
+          style={styles.mapImage}
+          resizeMode="contain"
         />
-        <Ionicons name="mic-outline" size={18} color="#aaa" />
-      </View>
-
-      
-      <Image
-        source={require('C:/Users/__Tina__/Desktop/PROJECT/Travelite/assets/images/map.png')} 
-        style={styles.mapImage}
-        resizeMode="contain"
-      />
 
       </ScrollView>
     
@@ -55,20 +55,20 @@ export default function WhereScreen({navigation}) {
 
       
        <View style={styles.bottomNav}>
-              <TouchableOpacity onPress={()=>navigation.replace('home')}>
-                <Ionicons name="home" size={24} color="#fff" />
-              </TouchableOpacity >
-              <TouchableOpacity onPress={()=>navigation.replace('reminder')}>
-                <Ionicons name="compass-outline" size={24} color="#888" />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={()=>navigation.replace('CustScreen1')}>
-                <Ionicons name="calendar-outline" size={24} color="#888" />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={()=>navigation.replace('plan1')}>
-                <Ionicons name="person-outline" size={24} color="#888" />
-              </TouchableOpacity>
+          <TouchableOpacity onPress={()=>navigation.replace('home')}>
+            <Ionicons name="home" size={24} color="#fff" />
+          </TouchableOpacity >
+          <TouchableOpacity onPress={()=>navigation.replace('reminder')}>
+            <Ionicons name="compass-outline" size={24} color="#888" />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={()=>navigation.replace('CustScreen1')}>
+            <Ionicons name="calendar-outline" size={24} color="#888" />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={()=>navigation.replace('plan1')}>
+            <Ionicons name="person-outline" size={24} color="#888" />
+          </TouchableOpacity>
               
-            </View>
+        </View>
     </View>
   );
 }

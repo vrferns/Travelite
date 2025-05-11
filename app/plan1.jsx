@@ -8,78 +8,77 @@ const COLORS = {primary: '#282D31', white: '#fff'};
 export default function PlanTripScreen({navigation}) {
   return (
     <View style={styles.container}>
-    <ScrollView>
-      <StatusBar backgroundColor={COLORS.primary} />
-      {/* Header */}
-      <View style={styles.headerRow}>
-        <Text style={styles.badge}>PLANLITE</Text>
-        <View style={styles.avatar} >
-            <Image
-                      source={require('C:/Users/__Tina__/Desktop/PROJECT/Travelite/assets/images/profile.png')} 
-                      style={styles.avatar}
-             />
+      <ScrollView>
+        <StatusBar backgroundColor={COLORS.primary} />
+       
+        <View style={styles.headerRow}>
+          <Text style={styles.badge}>PLANLITE</Text>
+          <View style={styles.avatar} >
+              <Image
+                        source={require('C:/Users/__Tina__/Desktop/PROJECT/Travelite/assets/images/profile.png')} 
+                        style={styles.avatar}
+              />
+          </View>
         </View>
-      </View>
 
-      <Text style={styles.title}>Plan your next{"\n"}epic trip</Text>
+        <Text style={styles.title}>Plan your next{"\n"}epic trip</Text>
 
+        
+        <View style={styles.timeline}>
+          
+          <View style={styles.step}>
+            <Ionicons name="location-outline" size={20} color="#fff" style={styles.icon} />
+            <View style={styles.stepText}>
+              <Text style={styles.stepLabel}>Step 1</Text>
+              <Text style={styles.stepHeading}>Where</Text>
+              <Text style={styles.stepDescription}>We'll help you pick a great place to host an adventure.</Text>
+            </View>
+          </View>
+
+          
+          <View style={styles.step}>
+            <MaterialIcons name="date-range" size={20} color="#fff" style={styles.icon} />
+            <View style={styles.stepText}>
+              <Text style={styles.stepLabel}>Step 2</Text>
+              <Text style={styles.stepHeading}>When</Text>
+              <Text style={styles.stepDescription}>Tell us how long you & your homies want this vacay to be & we’ll handle the rest.</Text>
+            </View>
+          </View>
+
+          
+          <View style={styles.step}>
+            <FontAwesome5 name="user-friends" size={20} color="#fff" style={styles.icon} />
+            <View style={styles.stepText}>
+              <Text style={styles.stepLabel}>Step 3</Text>
+              <Text style={styles.stepHeading}>Who</Text>
+              <Text style={styles.stepDescription}>Who are you bringing along? Tell us & we’ll make it happen.</Text>
+            </View>
+          </View>
+        </View>
+
+
+      </ScrollView>
       
-      <View style={styles.timeline}>
-        
-        <View style={styles.step}>
-          <Ionicons name="location-outline" size={20} color="#fff" style={styles.icon} />
-          <View style={styles.stepText}>
-            <Text style={styles.stepLabel}>Step 1</Text>
-            <Text style={styles.stepHeading}>Where</Text>
-            <Text style={styles.stepDescription}>We'll help you pick a great place to host an adventure.</Text>
-          </View>
-        </View>
-
-        
-        <View style={styles.step}>
-          <MaterialIcons name="date-range" size={20} color="#fff" style={styles.icon} />
-          <View style={styles.stepText}>
-            <Text style={styles.stepLabel}>Step 2</Text>
-            <Text style={styles.stepHeading}>When</Text>
-            <Text style={styles.stepDescription}>Tell us how long you & your homies want this vacay to be & we’ll handle the rest.</Text>
-          </View>
-        </View>
-
-        
-        <View style={styles.step}>
-          <FontAwesome5 name="user-friends" size={20} color="#fff" style={styles.icon} />
-          <View style={styles.stepText}>
-            <Text style={styles.stepLabel}>Step 3</Text>
-            <Text style={styles.stepHeading}>Who</Text>
-            <Text style={styles.stepDescription}>Who are you bringing along? Tell us & we’ll make it happen.</Text>
-          </View>
-        </View>
-      </View>
-
-
-    </ScrollView>
-    
-     
+      
       <TouchableOpacity style={styles.planButton} onPress={()=>navigation.replace('plan2')}>
         <Text style={styles.planButtonText}>Plan your Trip</Text>
       </TouchableOpacity>
 
-      
       <View style={styles.bottomNav}>
-             <TouchableOpacity onPress={()=>navigation.replace('home')}>
-               <Ionicons name="home" size={24} color="#fff" />
-             </TouchableOpacity >
-             <TouchableOpacity onPress={()=>navigation.replace('reminder')}>
-               <Ionicons name="compass-outline" size={24} color="#888" />
-             </TouchableOpacity>
-             <TouchableOpacity onPress={()=>navigation.replace('CustScreen1')}>
-               <Ionicons name="calendar-outline" size={24} color="#888" />
-             </TouchableOpacity>
-             <TouchableOpacity onPress={()=>navigation.replace('plan1')}>
-               <Ionicons name="person-outline" size={24} color="#888" />
-             </TouchableOpacity>
-             
-           </View>
+        <TouchableOpacity onPress={()=>navigation.replace('home')}>
+          <Ionicons name="home" size={24} color="#fff" />
+        </TouchableOpacity >
+        <TouchableOpacity onPress={()=>navigation.replace('reminder')}>
+          <Ionicons name="compass-outline" size={24} color="#888" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={()=>navigation.replace('CustScreen1')}>
+          <Ionicons name="calendar-outline" size={24} color="#888" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={()=>navigation.replace('plan1')}>
+          <Ionicons name="person-outline" size={24} color="#888" />
+        </TouchableOpacity>
+              
+      </View>
     </View>
   );
 }

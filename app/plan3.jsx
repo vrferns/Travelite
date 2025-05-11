@@ -14,64 +14,64 @@ export default function WhenScreen({navigation}) {
     <View style={styles.container}>
       <ScrollView>
         <StatusBar backgroundColor={COLORS.primary} />
-      
-      <View style={styles.tabs}>
-        <View style={styles.tab}>
-          <Ionicons name="location-outline" size={18} color="#999" />
+        
+        <View style={styles.tabs}>
+          <View style={styles.tab}>
+            <Ionicons name="location-outline" size={18} color="#999" />
+          </View>
+          <View style={[styles.tab, styles.tabActive]}>
+            <MaterialIcons name="date-range" size={18} color="#fff" />
+          </View>
+          <View style={styles.tab}>
+            <FontAwesome5 name="user-friends" size={16} color="#999" />
+          </View>
         </View>
-        <View style={[styles.tab, styles.tabActive]}>
-          <MaterialIcons name="date-range" size={18} color="#fff" />
+
+        
+        <Text style={styles.title}>When do you{"\n"}want to go?</Text>
+
+        
+        <View style={styles.toggleContainer}>
+          <TouchableOpacity
+            style={[styles.toggleButton, !flexible && styles.activeToggle]}
+            onPress={() => setFlexible(false)}
+           >
+            <Text style={[styles.toggleText, !flexible && styles.activeText]}>Choose dates</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.toggleButton, flexible && styles.activeToggle]}
+            onPress={() => setFlexible(true)}
+           >
+            <Text style={[styles.toggleText, flexible && styles.activeText]}>I'm flexible</Text>
+          </TouchableOpacity>
         </View>
-        <View style={styles.tab}>
-          <FontAwesome5 name="user-friends" size={16} color="#999" />
-        </View>
-      </View>
 
-      
-      <Text style={styles.title}>When do you{"\n"}want to go?</Text>
-
-      
-      <View style={styles.toggleContainer}>
-        <TouchableOpacity
-          style={[styles.toggleButton, !flexible && styles.activeToggle]}
-          onPress={() => setFlexible(false)}
-        >
-          <Text style={[styles.toggleText, !flexible && styles.activeText]}>Choose dates</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.toggleButton, flexible && styles.activeToggle]}
-          onPress={() => setFlexible(true)}
-        >
-          <Text style={[styles.toggleText, flexible && styles.activeText]}>I'm flexible</Text>
-        </TouchableOpacity>
-      </View>
-
-      
-      {/* {!flexible && (
-        <Calendar
-          current={selectedDate}
-          onDayPress={(day) => setSelectedDate(day.dateString)}
-          markedDates={{
-            [selectedDate]: {
-              selected: true,
-              disableTouchEvent: true,
-              selectedColor: '#ff7a00',
-              selectedTextColor: '#fff'
-            }
-          }}
-          theme={{
-            calendarBackground: '#2c2c2e',
-            dayTextColor: '#fff',
-            textSectionTitleColor: '#aaa',
-            monthTextColor: '#fff',
-            arrowColor: '#fff',
-            selectedDayBackgroundColor: '#ff7a00',
-            selectedDayTextColor: '#fff',
-            todayTextColor: '#ff7a00',
-          }}
-          style={styles.calendar}
-        />
-      )} */}
+        {/* calender */}
+        {/* {!flexible && (
+          <Calendar
+            current={selectedDate}
+            onDayPress={(day) => setSelectedDate(day.dateString)}
+            markedDates={{
+              [selectedDate]: {
+                selected: true,
+                disableTouchEvent: true,
+                selectedColor: '#ff7a00',
+                selectedTextColor: '#fff'
+              }
+            }}
+            theme={{
+              calendarBackground: '#2c2c2e',
+              dayTextColor: '#fff',
+              textSectionTitleColor: '#aaa',
+              monthTextColor: '#fff',
+              arrowColor: '#fff',
+              selectedDayBackgroundColor: '#ff7a00',
+              selectedDayTextColor: '#fff',
+              todayTextColor: '#ff7a00',
+            }}
+            style={styles.calendar}
+          />
+        )} */}
 
       </ScrollView>
         
@@ -83,20 +83,20 @@ export default function WhenScreen({navigation}) {
 
       
        <View style={styles.bottomNav}>
-              <TouchableOpacity onPress={()=>navigation.replace('home')}>
-                <Ionicons name="home" size={24} color="#fff" />
-              </TouchableOpacity >
-              <TouchableOpacity onPress={()=>navigation.replace('reminder')}>
-                <Ionicons name="compass-outline" size={24} color="#888" />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={()=>navigation.replace('CustScreen1')}>
-                <Ionicons name="calendar-outline" size={24} color="#888" />
-              </TouchableOpacity>
-              <TouchableOpacity onPress={()=>navigation.replace('plan1')}>
-                <Ionicons name="person-outline" size={24} color="#888" />
-              </TouchableOpacity>
+          <TouchableOpacity onPress={()=>navigation.replace('home')}>
+            <Ionicons name="home" size={24} color="#fff" />
+          </TouchableOpacity >
+          <TouchableOpacity onPress={()=>navigation.replace('reminder')}>
+            <Ionicons name="compass-outline" size={24} color="#888" />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={()=>navigation.replace('CustScreen1')}>
+           <Ionicons name="calendar-outline" size={24} color="#888" />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={()=>navigation.replace('plan1')}>
+           <Ionicons name="person-outline" size={24} color="#888" />
+          </TouchableOpacity>
               
-            </View>
+        </View>
     </View>
   );
 }
