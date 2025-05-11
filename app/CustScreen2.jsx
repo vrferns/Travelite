@@ -1,6 +1,8 @@
 
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet,StatusBar } from "react-native";
+import { MaterialIcons } from '@expo/vector-icons';
+import { ScrollView } from "react-native-gesture-handler";
 
 const COLORS = {primary: '#282D31', white: '#fff'};
 const interests = [
@@ -23,20 +25,35 @@ const CustomizationScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-        <StatusBar backgroundColor={COLORS.primary}/>
-        <Text style={styles.title1}>CUSTOMIZATION</Text>
-      <Text style={styles.title}>What are your Interests?</Text>
-      <View style={styles.optionsContainer}>
-        {interests.map((interest) => (
-          <TouchableOpacity
-            key={interest.id}
-            style={[styles.option, selectedInterests.includes(interest.id) && styles.selected]}
-            onPress={() => toggleInterest(interest.id)}
-          >
-            <Text style={styles.optionText}>{interest.label}</Text>
-          </TouchableOpacity>
-        ))}
+      <StatusBar backgroundColor={COLORS.primary}/>
+      <View style={styles.header}>
+        <TouchableOpacity style={styles.backButton} onPress={()=>navigation.replace('CustScreen1')}>
+           <MaterialIcons name="arrow-back" size={22} color="#fff" />
+        </TouchableOpacity>
+        
+        <TouchableOpacity style={styles.closeButton} onPress={()=>navigation.replace('home')} >
+          <MaterialIcons name="close" size={22} color="#fff" />
+        </TouchableOpacity>
+
       </View>
+        
+      <ScrollView>
+        <Text style={styles.title1}>CUSTOMIZATION</Text>
+        <Text style={styles.title}>What are your Interests?</Text>
+        <View style={styles.optionsContainer}>
+          {interests.map((interest) => (
+            <TouchableOpacity
+              key={interest.id}
+              style={[styles.option, selectedInterests.includes(interest.id) && styles.selected]}
+              onPress={() => toggleInterest(interest.id)}
+             >
+              <Text style={styles.optionText}>{interest.label}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+
+      </ScrollView>
+     
       <TouchableOpacity style={styles.nextButton} onPress={()=>navigation.replace('CustScreen3')}>
         <Text style={styles.nextText}>Next</Text>
       </TouchableOpacity>
@@ -47,12 +64,18 @@ const CustomizationScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1c1c1c",
+    backgroundColor: COLORS.primary,
     padding: 20,
+    paddingTop:40,
     justifyContent: "center",
   },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
   title1: {
-   
+   marginTop:50,
     color:"white",
   },
   title: {
@@ -71,7 +94,7 @@ const styles = StyleSheet.create({
   },
   option: {
     marginTop:10,
-    backgroundColor: "#2a2a2a",
+    backgroundColor: "#3e4246",
     paddingVertical: 15,
     paddingHorizontal: 30,
     borderRadius: 15,
@@ -94,7 +117,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ff9500",
     padding: 15,
     borderRadius: 50,
-    marginTop: 120,
+    marginBottom:30,
     alignItems: "center",
   },
   nextText: {

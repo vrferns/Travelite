@@ -1,6 +1,8 @@
 
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet,StatusBar } from "react-native";
+import { MaterialIcons } from '@expo/vector-icons';
+import { ScrollView } from "react-native-gesture-handler";
 
 const COLORS = {primary: '#282D31', white: '#fff'};
 
@@ -18,20 +20,33 @@ const CustomizationScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-        <StatusBar backgroundColor={COLORS.primary}/>
-        <Text style={styles.title1}>CUSTOMIZATION</Text>
-      <Text style={styles.title}>What is your ideal trip budget?</Text>
-      <View style={styles.optionsContainer}>
-        {budgets.map((budget) => (
-          <TouchableOpacity
-            key={budget.id}
-            style={[styles.option, selectedBudget === budget.id && styles.selected]}
-            onPress={() => setSelectedBudget(budget.id)}
-          >
-            <Text style={styles.optionText}>{budget.label}</Text>
-          </TouchableOpacity>
-        ))}
+      <StatusBar backgroundColor={COLORS.primary}/>
+      <View style={styles.header}>
+        <TouchableOpacity  onPress={()=>navigation.replace('CustScreen2')}>
+          <MaterialIcons name="arrow-back" size={24} color="#fff" />
+        </TouchableOpacity>
+        
+        <TouchableOpacity  onPress={()=>navigation.replace('home')}>
+          <MaterialIcons name="close" size={24} color="#fff" />
+        </TouchableOpacity>
       </View>
+         
+      <ScrollView>
+        <Text style={styles.title1}>CUSTOMIZATION</Text>
+        <Text style={styles.title}>What is your ideal trip budget?</Text>
+        <View style={styles.optionsContainer}>
+          {budgets.map((budget) => (
+            <TouchableOpacity
+              key={budget.id}
+              style={[styles.option, selectedBudget === budget.id && styles.selected]}
+              onPress={() => setSelectedBudget(budget.id)}
+             >
+              <Text style={styles.optionText}>{budget.label}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </ScrollView>
+     
       <TouchableOpacity style={styles.nextButton} onPress={()=>navigation.replace('home')}>
         <Text style={styles.nextText}>Next</Text>
       </TouchableOpacity>
@@ -42,11 +57,19 @@ const CustomizationScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1c1c1c",
+    backgroundColor: COLORS.primary,
     padding: 20,
+    paddingTop:40,
     justifyContent: "center",
   },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+
   title1: {
+    marginTop:50,
     color:"white",
   },
   title: {
@@ -65,7 +88,7 @@ const styles = StyleSheet.create({
   },
   option: {
     marginTop:10,
-    backgroundColor: "#2a2a2a",
+    backgroundColor: "#3e4246",
     paddingVertical: 15,
     paddingHorizontal: 30,
     borderRadius: 15,
@@ -87,7 +110,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ff9500",
     padding: 15,
     borderRadius: 50,
-    marginTop: 120,
+    marginBottom:30,
     alignItems: "center",
   },
   nextText: {

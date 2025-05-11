@@ -12,7 +12,7 @@ export default function VerificationScreen({navigation}) {
     <View style={styles.container}>
       <StatusBar backgroundColor={COLORS.primary}/>
       <TouchableOpacity style={styles.backButton}>
-        <MaterialIcons name="arrow-back-ios" size={20} color="#fff" />
+        <MaterialIcons name="arrow-back" size={22} color="#fff" />
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.closeButton}>
@@ -21,7 +21,7 @@ export default function VerificationScreen({navigation}) {
 
       <Text style={styles.header}>Enter the 6 digit code</Text>
       <Text style={styles.subText}>
-        Enter the code we sent over to <Text style={{ fontWeight: '600' }}>21co03@aitdxgoa.edu.in</Text>
+        Enter the code we sent over to <Text style={{ fontWeight: '600' }}>21co03@aitdgoa.edu.in</Text>
       </Text>
 
       <View style={styles.inputContainer}>

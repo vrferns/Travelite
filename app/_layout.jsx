@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Onboarding from '../app/Onboarding';
@@ -12,6 +12,7 @@ import CustScreen1 from '../app/CustScreen1';
 import CustScreen2 from '../app/CustScreen2';
 import CustScreen3 from '../app/CustScreen3';
 import home from '../app/home';
+import HomeCards from '../app/HomeCards';
 import EmailAuth from '../app/EmailAuth';
 import ResetPass from '../app/ResetPass';
 import Signup from '../app/Signup';
@@ -21,8 +22,10 @@ import reminder from '../app/reminder';
 import plan1 from '../app/plan1';
 import plan2 from '../app/plan2';
 import plan3 from '../app/plan3';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { SplashScreen } from 'expo-router';
+import payment from '../app/payment';
+import ConfirmPay from '../app/ConfirmPay';
+import done from '../app/done';
+
 import Welcome from '../app/Spalash';
 
 const Stack = createStackNavigator();
@@ -43,6 +46,7 @@ const App = () => {
         <Stack.Screen name="Terms" component={Terms}/>
         <Stack.Screen name="Notify" component={Notify}/>
         <Stack.Screen name="home" component={home}/>
+        <Stack.Screen name="HomeCards" component={HomeCards}/>
         <Stack.Screen name="reminder" component={reminder}/>
         <Stack.Screen name="CustScreen1" component={CustScreen1}/>
         <Stack.Screen name="CustScreen2" component={CustScreen2}/>
@@ -50,6 +54,9 @@ const App = () => {
         <Stack.Screen name="plan1" component={plan1}/>
         <Stack.Screen name="plan2" component={plan2}/>
         <Stack.Screen name="plan3" component={plan3}/>
+        <Stack.Screen name="payment" component={payment}/>
+        <Stack.Screen name="ConfirmPay" component={ConfirmPay}/>
+        <Stack.Screen name="done" component={done}/>
       </Stack.Navigator>
     
     

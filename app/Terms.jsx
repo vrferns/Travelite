@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image,StatusBar } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const COLORS = {primary: '#282D31', white: '#fff'};
 
@@ -7,7 +8,7 @@ export default function TermsOfServiceScreen({ navigation }) {
   return (
     <View style={styles.container}>
     <StatusBar backgroundColor={COLORS.primary}/>
-     
+     <ScrollView>
       <View style={styles.header}>
         <Image
                   source={require('C:/Users/__Tina__/Desktop/PROJECT/Travelite/assets/images/logoTrav.png')}  // Replace with avatar URL
@@ -28,6 +29,7 @@ export default function TermsOfServiceScreen({ navigation }) {
       <Text style={styles.commitment}>
         I agree to treat everyone in the Travelite community – regardless of their race, gender, religion, national origin, or ability – with respect & without judgement or bias.
       </Text>
+      </ScrollView>
 
      
       <TouchableOpacity style={styles.primaryButton} onPress={()=>navigation.replace('Notify')}>
@@ -50,6 +52,7 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
+    marginTop:40,
     marginBottom: 20,
   },
   
@@ -92,6 +95,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     paddingVertical: 15,
     alignItems: 'center',
+    marginBottom:40,
   },
   secondaryButtonText: {
     color: '#fff',

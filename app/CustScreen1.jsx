@@ -1,6 +1,8 @@
 
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet,StatusBar } from "react-native";
+import { MaterialIcons } from '@expo/vector-icons';
+import { ScrollView } from "react-native-gesture-handler";
 
 const CustScreen1 = ({navigation}) => {
   const [selected, setSelected] = useState(null);
@@ -9,24 +11,29 @@ const CustScreen1 = ({navigation}) => {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={COLORS.primary}/>
-      <Text style={styles.title1}>CUSTOMIZATION</Text>
-      <Text style={styles.title}>What matters more to you?</Text>
-      <View style={styles.optionsContainer}>
-        <TouchableOpacity
-          style={[styles.option, selected === "experience" && styles.selected]}
-          onPress={() => setSelected("experience")}
-        >
-          <Text style={styles.optionText}>🔆</Text>
-          <Text style={styles.optionText}>Experience</Text>
+      <View>
+        <TouchableOpacity  onPress={()=>navigation.replace('home')} >
+          <MaterialIcons name="close" size={22} color="#fff" />
         </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.option, selected === "comfort" && styles.selected]}
-          onPress={() => setSelected("comfort")}
-        >
-          <Text style={styles.optionText}>👑</Text>
-          <Text style={styles.optionText}>Comfort</Text>
-        </TouchableOpacity>
+
       </View>
+
+      <ScrollView>
+        <Text style={styles.title1}>CUSTOMIZATION</Text>
+        <Text style={styles.title}>What matters more to you?</Text>
+        <View style={styles.optionsContainer}>
+          <TouchableOpacity style={[styles.option, selected === "experience" && styles.selected]} onPress={() => setSelected("experience")}>
+            <Text style={styles.optionText}>🔆</Text>
+            <Text style={styles.optionText}>Experience</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={[styles.option, selected === "comfort" && styles.selected]}  onPress={() => setSelected("comfort")}>
+            <Text style={styles.optionText}>👑</Text>
+            <Text style={styles.optionText}>Comfort</Text>
+          </TouchableOpacity>
+        </View>
+
+      </ScrollView>
+
       <TouchableOpacity style={[styles.nextButton]} onPress={()=>navigation.replace('CustScreen2')}>
         <Text style={styles.nextText}>Next</Text>
       </TouchableOpacity>
@@ -37,11 +44,20 @@ const CustScreen1 = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1c1c1c",
+    backgroundColor:'#282D31',
     padding: 20,
+    paddingTop:60,
     justifyContent:"center",
   },
+  
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    margin:50,
+  },
   title1: {
+    marginTop:80,
     color:"white",
 
   },
@@ -51,7 +67,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "left",
     marginBottom: 20,
-    marginTop:100,
+    marginTop:50,
   },
   optionsContainer: {
     flexDirection: "row",
@@ -60,7 +76,7 @@ const styles = StyleSheet.create({
   },
   option: {
     flex: 1,
-    backgroundColor: "#2a2a2a",
+    backgroundColor: "#3e4246",
     paddingVertical: 80,
     borderRadius: 10,
     alignItems: "center",
@@ -81,7 +97,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ff9500",
     padding: 15,
     borderRadius: 50,
-    marginTop: 120,
+    marginBottom: 30,
     alignItems: "center",
   },
   nextText: {

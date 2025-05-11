@@ -11,6 +11,9 @@ export default function LoginScreen({navigation}) {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={COLORS.primary}/>
+      <TouchableOpacity style={styles.closeButton}>
+              <MaterialIcons name="close" size={22} color="#fff" />
+            </TouchableOpacity>
       <TouchableOpacity style={styles.avatarContainer}>
         <Image
           source={require('C:/Users/__Tina__/Desktop/PROJECT/Travelite/assets/images/profile.png')}  
@@ -58,6 +61,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
+  },
+  closeButton: {
+    position: 'absolute',
+    top: 50,
+    right: 20,
   },
   avatarContainer: {
     alignItems: 'center',

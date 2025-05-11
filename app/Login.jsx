@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image,StatusBar } from "react-native";
+import { MaterialIcons } from '@expo/vector-icons';
 
 const COLORS = {primary: '#282D31', white: '#fff'};
 
@@ -10,8 +11,12 @@ const CustomizationScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={COLORS.primary}/>
+       <TouchableOpacity style={styles.closeButton}>
+        <MaterialIcons name="close" size={22} color="#fff" />
+      </TouchableOpacity>
       <Text style={styles.title}>Enter your college email</Text>
       <View style={styles.inputContainer}>
+        <MaterialIcons name="person" size={30} color="#aaa" />
         <TextInput
           style={styles.input}
           placeholder="RegNo@college.edu.in"
@@ -49,6 +54,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  closeButton: {
+    position: 'absolute',
+    top: 50,
+    right: 20,
+  },
   title: {
     color: "white",
     fontSize: 40,
@@ -57,11 +67,15 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   inputContainer: {
-    backgroundColor: "#3e4246",
-    borderRadius: 10,
-    width: "100%",
-    padding: 15,
+    backgroundColor: '#3e4246',
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: 15,
+    paddingHorizontal: 15,
+    width: '100%',
     marginBottom: 20,
+    height: 70,
+  
   },
   input: {
     color: "white",

@@ -22,7 +22,7 @@ export default function SignupScreen({navigation}) {
      <StatusBar backgroundColor={COLORS.primary}/>
       
       <TouchableOpacity style={styles.backButton}>
-        <MaterialIcons name="arrow-back-ios" size={20} color="#fff" />
+        <MaterialIcons name="arrow-back" size={20} color="#fff" />
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.closeButton}>
@@ -54,7 +54,7 @@ export default function SignupScreen({navigation}) {
 
       
       <View style={styles.iconInputContainer}>
-        <MaterialIcons name="email" size={20} color="#aaa" />
+        <MaterialIcons name="person" size={20} color="#aaa" />
         <TextInput
           style={styles.iconInput}
           placeholder="Email"

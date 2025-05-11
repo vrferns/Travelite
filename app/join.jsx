@@ -13,16 +13,13 @@ const join = ({navigation}) => {
             <View style={{ flex:0.3}}>
                 <Image 
                 style={[styles.image, {height:'200px',width,resizeMode:'contain'}]}
-            
                 source={require("C:/Users/__Tina__/Desktop/PROJECT/Travelite/assets/images/join.png")}/>
             </View>
             <View>
                 <Text style={[styles.title1]}>
                    Join millions  </Text>
-                <Text  style={[styles.title]}> 
-                    of students </Text>  
-                <Text  style={[styles.title]}>
-                    adventuring </Text>   
+                <Text  style={[styles.title]}> of students </Text>  
+                <Text  style={[styles.title]}> adventuring </Text>   
                
             </View>
             <View>
@@ -35,7 +32,7 @@ const join = ({navigation}) => {
 
             </View>
             <View>
-                 <TouchableOpacity style={[styles.btn]} onPress={()=>navigation.replace('Login')}>
+                 <TouchableOpacity style={[styles.btn]} onPress={()=>navigation.replace('payment')}>
                     <Text style={styles.btnText}>{"Continue"}</Text>
                  </TouchableOpacity>
             </View>
@@ -44,7 +41,7 @@ const join = ({navigation}) => {
         
           
         </View>
-  )
+    )
 }
 
 export default join

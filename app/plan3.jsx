@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity,StatusBar } from 'react-native';
 //import {Calendar} from 'react-native-calendars'
 import { Ionicons, MaterialIcons, FontAwesome5 } from '@expo/vector-icons';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const COLORS = {primary: '#282D31', white: '#fff'};
 
-export default function WhenScreen() {
+export default function WhenScreen({navigation}) {
   const [selectedDate, setSelectedDate] = useState('2023-01-04');
   const [flexible, setFlexible] = useState(false);
 
   return (
     <View style={styles.container}>
+      <ScrollView>
         <StatusBar backgroundColor={COLORS.primary} />
       
       <View style={styles.tabs}>
@@ -71,29 +73,29 @@ export default function WhenScreen() {
         />
       )} */}
 
+      </ScrollView>
+        
+
       
-      <TouchableOpacity style={styles.nextButton}>
+      <TouchableOpacity style={styles.nextButton} onPress={()=>navigation.replace('CustScreen1')} > 
         <Text style={styles.nextButtonText}>Next</Text>
       </TouchableOpacity>
 
       
-      <View style={styles.navBar}>
-              <TouchableOpacity style={styles.navItem}>
-                  <MaterialIcons style={styles.navItemIcon} name="explore" size={20} color="#aaa" />   
-                  <Text style={styles.navItem}>Explore</Text>     
+       <View style={styles.bottomNav}>
+              <TouchableOpacity onPress={()=>navigation.replace('home')}>
+                <Ionicons name="home" size={24} color="#fff" />
               </TouchableOpacity >
-              <TouchableOpacity style={styles.navItem}>
-                  <MaterialIcons style={styles.navItemIcon} name="search" size={20} color="#aaa" />   
-                  <Text style={styles.navItem}>Search</Text>     
-              </TouchableOpacity >
-              <TouchableOpacity style={styles.navItemActive}>
-                  <MaterialIcons style={styles.navItemIcon} name="send" size={20} color="#aaa" />   
-                  <Text style={styles.navItem}>Plan</Text>     
-              </TouchableOpacity >
-              <TouchableOpacity style={styles.navItem}>
-                  <MaterialIcons style={styles.navItemIcon} name="group" size={20} color="#aaa" />   
-                  <Text style={styles.navItem}>Homies</Text>     
-              </TouchableOpacity >
+              <TouchableOpacity onPress={()=>navigation.replace('reminder')}>
+                <Ionicons name="compass-outline" size={24} color="#888" />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={()=>navigation.replace('CustScreen1')}>
+                <Ionicons name="calendar-outline" size={24} color="#888" />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={()=>navigation.replace('plan1')}>
+                <Ionicons name="person-outline" size={24} color="#888" />
+              </TouchableOpacity>
+              
             </View>
     </View>
   );
@@ -161,37 +163,26 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     paddingVertical: 14,
     alignItems: 'center',
-    marginBottom: 20,
-    marginTop: 10,
+    marginVertical:20,
   },
   nextButtonText: {
     color: '#fff',
     fontSize: 15,
     fontWeight: '600',
   },
-  navItemIcon: {
-    margin:15 ,
-    marginBottom:2,
-    marginTop: 9,
-  },
-  navBar: {
-    backgroundColor:'#3e4246',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingBottom: 0,
-    marginBottom:50,
-    marginVertical:20,
-    borderRadius: 50,
-  },
-  navItem: {
-    color: '#888',
-    fontSize: 15,
-    marginBottom: 3,
-  },
-  navItemActive: {
-    color: '#fff',
-    fontWeight: 'bold',
-    backgroundColor: '#2c2c2e',
-    borderRadius: 10,
+  bottomNav: {
+    
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      paddingVertical: 15,
+      margin:25,
+      marginTop:0,
+      marginBottom:40,
+      borderTopWidth: 1,
+      borderColor: '#222',
+      backgroundColor: '#1c1c1c',
+      borderRadius: 50,
+      
+    
   },
 });

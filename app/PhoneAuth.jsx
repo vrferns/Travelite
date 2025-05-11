@@ -21,7 +21,7 @@ export default function ConfirmNumberScreen({navigation}) {
     <View style={styles.container}>
       <StatusBar backgroundColor={COLORS.primary} />
       <TouchableOpacity style={styles.backButton}>
-        <MaterialIcons name="arrow-back-ios" size={20} color="#fff" />
+        <MaterialIcons name="arrow-back" size={22} color="#fff" />
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.closeButton}>
