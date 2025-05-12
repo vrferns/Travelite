@@ -31,7 +31,7 @@ const join = ({navigation}) => {
 
             </View>
             <View>
-                 <TouchableOpacity style={[styles.btn]} onPress={()=>navigation.replace('payment')}>
+                 <TouchableOpacity style={[styles.btn]} onPress={()=>navigation.replace('Login')}>
                     <Text style={styles.btnText}>{"Continue"}</Text>
                  </TouchableOpacity>
             </View>
